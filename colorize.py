@@ -38,7 +38,7 @@ args = parse_args()
 G = generator()
 
 if args.gpu>=0:
-    G=G.cuda(args.gpu)
+    G=G.cuda()
     G.load_state_dict(torch.load(args.model, map_location='cuda'))
 else:
     G.load_state_dict(torch.load(args.model,map_location={'cuda:0': 'cpu'}))
